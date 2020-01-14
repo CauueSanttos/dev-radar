@@ -1,6 +1,6 @@
 import Dev from '../models/Dev';
-
 import github_api from '../../services/github_api';
+import parseStringAsArray from '../../utils/parseStringAsArray';
 
 class DevController {
   async index(req, res) {
@@ -19,7 +19,7 @@ class DevController {
 
       const { name = login, avatar_url, bio } = response.data;
 
-      const techsArray = techs.split(',').map(tech => tech.trim());
+      const techsArray = parseStringAsArray(techs);
 
       const location = {
         type: 'Point',
