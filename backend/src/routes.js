@@ -10,6 +10,7 @@ class Routes {
   }
 
   devs() {
+    this.routes.get('/devs', DevController.index);
     this.routes.post('/devs', DevController.store);
   }
 }
